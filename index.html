@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Football Slideshow</title>
+  <style>
+    body {
+  background: #1a1a1a;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.mySlides {
+  display: none;
+}
+
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: 40px auto;
+  border: 5px solid #28a745;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.numbertext {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  color: #fff;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  background-color: rgba(40, 167, 69, 0.7);
+  padding: 8px 0;
+}
+
+.fade {
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  user-select: none;
+  background-color: rgba(0,0,0,0.5);
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.prev:hover, .next:hover {
+  background-color: #28a745;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.active, .dot:hover {
+  background-color: #28a745;
+}
+
+  </style>
+</head>
+<body>
+ <div class="slideshow-container">
+
+  <!-- Slide 1 -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 5</div>
+    <img src="https://images.pexels.com/photos/61135/pexels-photo-61135.jpeg" style="width:100%">
+    <div class="text">Image with number 1</div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 5</div>
+    <img src="https://images.pexels.com/photos/200986/pexels-photo-200986.jpeg" style="width:100%">
+    <div class="text">Image with number 2</div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 5</div>
+    <img src="https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg" style="width:100%">
+    <div class="text">Image with number 3</div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 5</div>
+    <img src="https://images.pexels.com/photos/1884576/pexels-photo-1884576.jpeg" style="width:100%">
+    <div class="text">Image with number 4</div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 5</div>
+    <img src="https://images.pexels.com/photos/1615842/pexels-photo-1615842.jpeg" style="width:100%">
+    <div class="text">Image with number 5</div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+</div>
+
+<br>
+
+<!-- Dots (indicators) -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+</div>
+
+  <script>
+   let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+  </script>
+</body>
+</html>
